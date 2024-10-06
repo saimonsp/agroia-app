@@ -13,10 +13,7 @@ client = MongoClient(DATABASE_URL)
 
 # Acesso ao banco de dados
 db = client.get_database("agroia_db")  # Nome do banco de dados que você deseja usar
-
-# Expondo o cliente e o banco de dados para uso em outras partes da aplicação
-def get_client():
-    return client
+collection = db.get_collection("sua_colecao")  # Nome da coleção que você deseja usar
 
 async def get_db():
     async with async_session() as session:

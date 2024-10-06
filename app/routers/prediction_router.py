@@ -1,29 +1,22 @@
-from fastapi import APIRouter, File, UploadFile, Depends
-from sqlalchemy.orm import Session
-from .. import models, crud, prediction
-from app.db import get_db  # Use a importação absoluta
+# app/routers/predictions.py
 
+from fastapi import APIRouter, HTTPException
+from app.prediction import predict
 
 router = APIRouter()
 
 @router.post("/predict/")
-async def predict(file: UploadFile = File(...), db: Session = Depends(get_db)):
-    # Ler o arquivo HDF5
-    contents = await file.read()
-    
-    # Salvar o arquivo temporariamente
-    file_path = "temp_file.h5"
-    with open(file_path, "wb") as temp_file:
-        temp_file.write(contents)
+async def make_prediction(coordinates: dict):
+    try:
+        # Extrair as coordenadas do corpo da requisição
+        lat = coordinates.get("latitude")
+        lon = coordinates.get("longitude")
+        if lat is None or lon is None:
+            raise HTTPException(status_code=400, detail="Coordenadas inválidas")
 
-    # Chamar a função de predição
-    predictions, heatmap = prediction.predict(file_path)
+        # Chamar a função de predição
+        result = predict((lat, lon))
+        return {"result": result}
 
-    # Gravar os dados no banco de dados
-    new_prediction = models.Prediction(
-        predictions=predictions,
-        heatmap_image=heatmap
-    )
-    crud.create_prediction(db=db, prediction=new_prediction)
-
-    return {"predictions": predictions, "heatmap": heatmap}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

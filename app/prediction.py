@@ -22,7 +22,7 @@ def extract_windows(array, window_size):
     return windows
 
 def load_model():
-    return joblib.load('random_forest_model.pkl')
+    return joblib.load('random_forest_model_new.pkl')
 
 def predict(file_path):
     # Pipeline de Predição

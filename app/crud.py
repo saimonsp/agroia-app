@@ -1,5 +1,5 @@
 # app/crud.py
-
+from app.db.database import get_db
 from app.db.database import db
 
 async def create_item(collection_name, item_data):
