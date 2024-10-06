@@ -28,7 +28,7 @@ def extract_windows(array, window_size):
 def load_model():
     # Obter o caminho absoluto do diretório atual
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(base_dir, '/mount/src/agroia-app/random_forest_model_new.pkl')
+    model_path = os.path.join(base_dir, '../random_forest_model_new.pkl')
     
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"O arquivo do modelo não foi encontrado: {model_path}")
