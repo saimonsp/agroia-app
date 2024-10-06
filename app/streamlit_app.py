@@ -229,7 +229,7 @@ def collect_indices(datafile,lat_ref,lon_ref):
 
   return np.array(lat_start_idx),np.array(lat_end_idx),np.array(lon_start_idx),np.array(lon_end_idx)
 
-lat_start_idxs,lat_end_idxs,lon_start_idxs,lon_end_idxs = collect_indices("/home/saimon/projects/nasaspaceapps/agroia-backend/rectangles.csv",latitudes,longitudes)
+lat_start_idxs,lat_end_idxs,lon_start_idxs,lon_end_idxs = collect_indices("../rectangles.csv",latitudes,longitudes)
 
 for lat_start_idx,lat_end_idx,lon_start_idx,lon_end_idx in zip(lat_start_idxs,lat_end_idxs,lon_start_idxs,lon_end_idxs):
   predictions = np.array(predictions)
