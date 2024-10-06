@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copiar os arquivos de requisitos e instalar as dependências
 COPY requirements.txt ./
-RUN pip install --no-cache-dir --upgrade pip && pip uninstall streamlit && pip install --no-cache-dir -r requirements.txt 
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt 
 
 # Copiar o restante do código da aplicação
 COPY . .
