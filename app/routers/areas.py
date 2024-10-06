@@ -1,7 +1,7 @@
 # areas.py
 
 from fastapi import APIRouter
-from crud import create_area, get_areas, get_area, update_area, delete_area
+from app.crud import create_area, get_areas, get_area, update_area, delete_area
 
 router = APIRouter()
 

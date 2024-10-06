@@ -1,0 +1,41 @@
+# Ignorar ambiente virtual
+venv/
+*.egg-info/
+__pycache__/
+*.py[cod]
+
+# Ignorar arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de ambiente
+.env
+*.env
+
+# Ignorar arquivos de cache
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de teste
+*.cover
+.coverage.*
+nosetests.xml
+coverage.xml
+*.hypothesis/
+*.pytest_cache/
+
+# Ignorar pastas de build e distribuições
+build/
+dist/
+*.egg
+*.whl
+
+# Ignorar arquivos de configuração do editor
+.vscode/
+.idea/
+*.swp
+*.swo
