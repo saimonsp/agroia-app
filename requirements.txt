@@ -14,4 +14,3 @@ seaborn
 joblib
 motor
 streamlit
-tkinter
