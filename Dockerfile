@@ -1,18 +1,15 @@
-# Usar uma imagem base do Python
-FROM python:3.11-slim
+# Usar a imagem oficial do Python
+FROM python:3.10
 
 # Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar o arquivo de requisitos e instalar dependências
+# Copiar os arquivos de requisitos e instalar as dependências
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar o código da aplicação para o contêiner
+# Copiar o restante do código para o contêiner
 COPY . .
 
-# Expor a porta que a aplicação usará
-EXPOSE 8000
-
-# Comando para rodar a aplicação
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Comando para iniciar o servidor FastAPI
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
