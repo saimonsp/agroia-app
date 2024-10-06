@@ -15,3 +15,4 @@ joblib
 motor
 streamlit
 geopy
+ipywidgets
