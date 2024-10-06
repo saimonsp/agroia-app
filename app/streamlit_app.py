@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 import os
-import tkinter as tk
-from tkinter import simpledialog
+
 
 
 # Funções que você já tem
