@@ -1,10 +1,5 @@
-fastapi
-uvicorn
-sqlalchemy
 python-dotenv
 pydantic
-azure-cosmos
-pymongo
 h5py
 numpy
 pandas
